@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luxury Hotel Language Select</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: "Segoe UI", sans-serif;
+
+            /* Хүрэн-шаргал тансаг gradient background */
+            background: linear-gradient(135deg, #3c2415, #6e4a2d, #b48a56);
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            flex-direction: column;
+        }
+
+        .box {
+            background: rgba(255,255,255,0.15);
+            padding: 30px 40px;
+            border-radius: 16px;
+            width: 340px;
+            text-align: center;
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.28);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+        }
+
+        h2 {
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.45);
+            background: rgba(20,20,20,0.9);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            appearance: none;
+            outline: none;
+        }
+
+        option {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #e7c77c, #b18b40);
+            border: none;
+            color: #000;
+            font-size: 17px;
+            font-weight: bold;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        #content {
+            margin-top: 25px;
+            padding: 20px 30px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            max-width: 600px;
+            display: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.6;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Та хэлээ сонгоно уу</h2>
+
+        <select id="language-select">
+            <option value="">-- Select Language --</option>
+            <option value="mn">Монгол хэл</option>
+            <option value="en">English</option>
+            <option value="jp">日本語 (Japanese)</option>
+            <option value="kr">한국어 (Korean)</option>
+            <option value="cn">中文 (Chinese)</option>
+        </select>
+
+        <button onclick="showContent()">CONTINUE</button>
+    </div>
+
+    <div id="content"></div>
+
+<script>
+    const texts = {
+        mn: "Монголын мөнгөн аяганы бэлгэдэл: Энэ аяга нь одоогоор Монголд хийгдсэн хамгийн том мөнгөн аяганы нэг бөгөөд уламжлалт ёс, хүндэтгэл, өглөгийн эрхэм утгыг илэрхийлдэг. Дотор нь хийсэн буудайн дээж нь арвижиж дэлгэрэх, өлзий буян нэмэгдэх, сайн сайхан бүхэн үргэлж ирж байхыг бэлгэддэг.",
+        en: "Symbolism of the Mongolian Silver Bowl: This silver bowl is one of the largest of its kind ever crafted in Mongolia and carries great ceremonial and cultural significance. The grains of wheat placed inside symbolize prosperity, abundance, good fortune, and the continuous growth of wealth and well-being.",
+        jp: "モンゴルの銀製杯の象徴: この銀の杯は、現在モンゴルで作られた中でも最大級の作品であり、伝統的な儀礼と敬意を象徴しています。内部に入れられた小麦の穀粒は、繁栄、豊かさ、幸運、そして富と福が絶えず満ちていくことを表しています。",
+        kr: "몽골 은잔의 상징성: 이 은잔은 현재 몽골에서 제작된 가장 큰 규모의 작품 중 하나로, 전통적 예식과 존경을 의미합니다. 안에 담긴 밀 씨앗은 번영、풍요、행운、그리고 재물과 복이 끊임없이 더해지기를 기원하는 상징입니다。",
+        cn: "蒙古银碗的象征意义：这只银碗是目前蒙古制作的最大银碗之一，具有重要的礼仪与文化象征。碗中放入的小麦象征着繁荣昌盛、富足丰收，以及财富与福运不断增长。"
+    };
+
+    function showContent() {
+        const lang = document.getElementById("language-select").value;
+        const content = document.getElementById("content");
+
+        if (!lang) {
+            alert("Та хэлээ сонгоно уу");
+            return;
+        }
+
+        content.innerHTML = texts[lang];
+        content.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
